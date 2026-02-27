@@ -1,0 +1,30 @@
+# PHPUnitテストを実行するためのワークフローファイル
+name: PHPUnit Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    # テストジョブは最新のUbuntu環境で実行。
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリのコードをチェックアウト。
+      - uses: actions/checkout@v3
+
+      # PHP環境をセットアップ
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      # Composerを使用して、プロジェクトの依存関係をインストール。
+      - name: install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+      
+      # PHPUnitを実行して、テストを実行。
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit

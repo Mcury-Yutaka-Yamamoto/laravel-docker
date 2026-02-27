@@ -25,6 +25,6 @@ jobs:
       - name: install Composer dependencies
         run: composer install --prefer-dist --no-progress
       
-      # PHPUnitを実行して、テストを実行。
+      # PHPUnitを実行。
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit

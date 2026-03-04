@@ -36,15 +36,6 @@ jobs:
         working-directory: src
       
       # PHPUnitを実行。
-      # - name: Run PHPUnit tests
-      #   run: vendor/bin/phpunit
-      #   working-directory: src
-
-      # PHPUnitを実行
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit tests/Feature/ExampleTest.php
-        working-directory: src
-
-      - name: Run PHPUnit tests
-        run: vendor/bin/phpunit tests/Feature/PostsTest.php
+        run: vendor/bin/phpunit
         working-directory: src
